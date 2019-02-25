@@ -1,0 +1,30 @@
+{
+  "name": "next-link",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Jungwoo-An <o1o9814@naver.com>",
+  "license": "MIT",
+  "scripts": {
+    "build:prod": "rollup --config",
+    "build:minify": "cross-env NODE_ENV=minify rollup --config",
+    "build": "npm run build:prod && npm run build:minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jungwoo-An/next-link.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jungwoo-An/next-link/issues"
+  },
+  "homepage": "https://github.com/Jungwoo-An/next-link#readme",
+  "devDependencies": {
+    "rollup": "^1.2.3",
+    "rollup-plugin-typescript": "^1.0.0",
+    "rollup-plugin-uglify": "^6.0.2",
+    "tslib": "^1.9.3",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0"
+  }
+}
