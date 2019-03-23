@@ -5,9 +5,8 @@
   "author": "Jungwoo-An <o1o9814@naver.com>",
   "license": "MIT",
   "scripts": {
-    "build:prod": "rollup --config",
-    "build:minify": "cross-env NODE_ENV=minify rollup --config",
-    "build": "npm run build:prod && npm run build:minify"
+    "build:prod": "rollup --environment NODE_ENV:production --config",
+    "build": "npm run build:prod"
   },
   "repository": {
     "type": "git",
@@ -19,10 +18,9 @@
   "homepage": "https://github.com/Jungwoo-An/next-link#readme",
   "devDependencies": {
     "rollup": "^1.2.3",
-    "rollup-plugin-typescript": "^1.0.0",
-    "rollup-plugin-uglify": "^6.0.2",
-    "tslib": "^1.9.3",
-    "typescript": "^3.3.3333"
+    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-typescript2": "^0.20.1",
+    "typescript": "^3.3.4000"
   },
   "dependencies": {
     "cross-env": "^5.2.0"

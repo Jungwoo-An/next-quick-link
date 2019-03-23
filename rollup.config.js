@@ -1,25 +1,34 @@
-import typescript from 'rollup-plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
 
-import { uglify } from 'rollup-plugin-uglify';
+import { terser } from 'rollup-plugin-terser';
 
-const isMinify = typeof process.env.NODE_ENV !== 'undefined' && process.env.NODE_ENV === 'minify';
+const isProduction =
+  typeof process.env.NODE_ENV !== 'undefined' &&
+  process.env.NODE_ENV === 'production';
+
 const plugins = [typescript()];
 
-if (isMinify) {
+if (isProduction) {
   plugins.push(
-    uglify({
+    terser({
       sourcemap: true,
     }),
   );
 }
 
-const file = (isMinify && 'dist/next-link.min.js') || 'dist/next-link.js';
+const filename = 'dist/next-link';
 
 export default {
   input: 'lib/index.ts',
-  output: {
-    file,
-    format: 'esm',
-  },
+  output: [
+    {
+      file: `${filename}.js`,
+      format: 'cjs',
+    },
+    {
+      file: `${filename}.es.js`,
+      format: 'es',
+    },
+  ],
   plugins: [...plugins],
 };
