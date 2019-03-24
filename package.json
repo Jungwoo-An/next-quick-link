@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Jungwoo-An/next-link#readme",
   "devDependencies": {
+    "react": "^16.8.5",
     "rollup": "^1.2.3",
     "rollup-plugin-terser": "^4.0.4",
     "rollup-plugin-typescript2": "^0.20.1",
