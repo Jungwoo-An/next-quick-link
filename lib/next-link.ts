@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+import Router from 'next/router'
 import Link, { LinkProps } from 'next/link'
 
 export interface NextLinkProps {
@@ -38,12 +39,25 @@ class NextLink extends React.PureComponent<Props> {
     this.disconnectObserver()
   }
 
-  handleIntersection = (target: Element) => {}
+  handleIntersection = () => {
+    const { href } = this.props
+    if (!href) {
+      return
+    }
+
+    if (typeof href === 'object' && href.pathname) {
+      Router.prefetch(href.pathname)
+    }
+
+    if (typeof href === 'string') {
+      Router.prefetch(href)
+    }
+  }
 
   createObserver = () => {
     const { rootMargin, threshold } = this.props
 
-    this.intersectionObserver = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && this.handleIntersection(entry.target)), {
+    this.intersectionObserver = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && this.handleIntersection()), {
       rootMargin,
       threshold
     })
