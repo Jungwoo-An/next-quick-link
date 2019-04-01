@@ -1,0 +1,8 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": "standard",
+  "plugins": ["@typescript-eslint/eslint-plugin"],
+  "env": {
+    "browser": true
+  }
+}
