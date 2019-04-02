@@ -10,6 +10,8 @@ export interface NextLinkProps {
 
 export type Props = LinkProps & Readonly<NextLinkProps>
 
+const fetched: string[] = []
+
 class NextLink extends React.PureComponent<Props> {
   intersectionObserver?: IntersectionObserver
 
@@ -45,13 +47,21 @@ class NextLink extends React.PureComponent<Props> {
       return
     }
 
+    let prefetch: string = ''
     if (typeof href === 'object' && href.pathname) {
-      Router.prefetch(href.pathname)
+      prefetch = href.pathname
     }
 
     if (typeof href === 'string') {
-      Router.prefetch(href)
+      prefetch = href
     }
+
+    if (!prefetch || fetched.indexOf(prefetch) !== -1) {
+      return
+    }
+
+    Router.prefetch(prefetch)
+    fetched.push(prefetch)
   }
 
   createObserver = () => {
