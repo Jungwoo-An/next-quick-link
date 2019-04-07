@@ -65,12 +65,29 @@ class NextLink extends React.PureComponent<Props> {
   }
 
   createObserver = () => {
+    const { connection } = navigator as any
+    if (connection) {
+      if (
+        (connection.effectiveType &&
+          connection.effectiveType.indexOf('2g') !== -1) ||
+        connection.saveData
+      ) {
+        return
+      }
+    }
+
     const { rootMargin, threshold } = this.props
 
-    this.intersectionObserver = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && this.handleIntersection()), {
-      rootMargin,
-      threshold
-    })
+    this.intersectionObserver = new IntersectionObserver(
+      (entries) =>
+        entries.forEach(
+          (entry) => entry.isIntersecting && this.handleIntersection()
+        ),
+      {
+        rootMargin,
+        threshold
+      }
+    )
   }
 
   observeElement = (element: HTMLElement) => {
