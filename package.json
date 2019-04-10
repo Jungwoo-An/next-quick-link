@@ -1,7 +1,7 @@
 {
   "name": "next-link",
   "version": "1.0.0",
-  "description": "",
+  "description": "Nextjs effective prefetch to bundle\n",
   "author": "Jungwoo-An <o1o9814@naver.com>",
   "license": "MIT",
   "scripts": {

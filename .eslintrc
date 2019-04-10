@@ -4,5 +4,8 @@
   "plugins": ["@typescript-eslint/eslint-plugin"],
   "env": {
     "browser": true
+  },
+  "rules": {
+    "no-unused-vars": 0
   }
 }
