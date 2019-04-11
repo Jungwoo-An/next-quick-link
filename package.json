@@ -1,9 +1,12 @@
 {
-  "name": "next-link",
+  "name": "next-quick-link",
   "version": "1.0.0",
-  "description": "Nextjs effective prefetch to bundle\n",
-  "author": "Jungwoo-An <o1o9814@naver.com>",
+  "description": "Nextjs effective prefetch bundle",
+  "author": "Jungwoo An <o1o9814@naver.com>",
   "license": "MIT",
+  "main": "./dist/next-link.js",
+  "module": "./dist/next-link.es.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build:prod": "rollup --environment NODE_ENV:production --config",
     "build": "npm run build:prod"

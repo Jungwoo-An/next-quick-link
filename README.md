@@ -1,6 +1,6 @@
-# Next Link
+# Next Quick Link
 
-Nextjs effective prefetch to bundle.
+Nextjs effective prefetch bundle.
 
 ## How?
 
@@ -12,13 +12,13 @@ Nextjs effective prefetch to bundle.
 ### Install via npm (or yarn)
 
 ```bash
-npm install --save-dev next-link
+npm install --save-dev next-quick-link
 ```
 
 ### Usage
 
 ```tsx
-import Link from 'next-link';
+import Link from 'next-quick-link';
 
 <Link {/* Allow all options of next/link */} />
 ```
@@ -27,10 +27,10 @@ import Link from 'next-link';
 
 First, check the options of [next/link](https://github.com/zeit/next.js#with-link)
 
-Name       | Type
----------- | -------
-rootMargin | string?
-threshold  | number?
+| Name       | Type    |
+| ---------- | ------- |
+| rootMargin | string? |
+| threshold  | number? |
 
 ### Inspiration
 
